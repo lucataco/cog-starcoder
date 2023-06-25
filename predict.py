@@ -30,7 +30,7 @@ class Predictor(BasePredictor):
 
     def predict(self,
         prompt: str = Input(description="Instruction for the model"),
-        max_new_tokens: int = Input(description="max tokens to generate", default=20)
+        max_new_tokens: int = Input(description="max tokens to generate", default=64)
     ) -> str:    
         inputs = self.tokenizer.encode(prompt, return_tensors="pt").to(device)
         outputs = self.model.generate(
