@@ -2,6 +2,11 @@
 
 Attempt at creating a cog wrapper for [bigcode/starcoder](https://huggingface.co/bigcode/starcoder).
 
+## Setup
+First download the cog weights
+
+`cog run script/download-weights`
+
 ## Run
 
 `cog build -t starcoder`

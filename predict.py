@@ -6,25 +6,19 @@ import transformers
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 device = "cuda"
+MODEL_CACHE = "diffusers-cache"
+MODEL_ID = 'bigcode/starcoder'
 
 class Predictor(BasePredictor):
     def setup(self):
-        name = 'bigcode/starcoder'
-        MODEL_CACHE = "diffusers-cache"
-
-        if os.path.exists(MODEL_CACHE):
-            shutil.rmtree(MODEL_CACHE)
-        os.makedirs(MODEL_CACHE, exist_ok=True)
-
+        print("Loading model...")
         self.tokenizer = AutoTokenizer.from_pretrained(
-            name, 
-            use_auth_token="<HF_TOKEN>",
+            MODEL_ID,
             cache_dir=MODEL_CACHE
         )
         self.model = AutoModelForCausalLM.from_pretrained(
-            name, 
+            MODEL_ID,
             load_in_8bit=True,
-            use_auth_token="<HF_TOKEN>",
             cache_dir=MODEL_CACHE
         )
 
