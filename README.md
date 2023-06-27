@@ -1,11 +1,16 @@
-# bigcode/starcoder_py COG
+# bigcode/starcoder cog
 
-Attempt at creating a cog wrapper for [bigcode/starcoder](https://huggingface.co/bigcode/starcoder).
+Attempt at creating a cog wrapper for [bigcode/starcoder](https://huggingface.co/bigcode/starcoder)
 
 ## Setup
-First download the cog weights
 
-`cog run script/download-weights`
+Download the cog weights
+
+`cog run script/download-weights <HF_TOKEN>`
+
+Then run
+
+`cog predict -i prompt="Python function that determines if a given number x is prime"`
 
 ## Run
 

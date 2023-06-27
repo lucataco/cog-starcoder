@@ -14,12 +14,17 @@ if os.path.exists(MODEL_CACHE):
     shutil.rmtree(MODEL_CACHE)
 os.makedirs(MODEL_CACHE, exist_ok=True)
 
+#get token from script argument
+token = sys.argv[1]
+
 saftey_checker = AutoTokenizer.from_pretrained(
     MODEL_ID,
     cache_dir=MODEL_CACHE,
+    use_auth_token=token
 )
 
 pipe = AutoModelForCausalLM.from_pretrained(
     MODEL_ID,
     cache_dir=MODEL_CACHE,
+    use_auth_token=token
 )
